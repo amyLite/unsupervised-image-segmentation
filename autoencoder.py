@@ -6,7 +6,7 @@ from encoder import encode
 from decoder import decode
 from input_data import input_data
 
-logdir = "checkpoints/model.ckpt"
+#logdir = "checkpoints/model.ckpt"
 
 # network parameters
 learning_rate = 0.0001
@@ -41,7 +41,7 @@ saver = tf.train.Saver()
 
 with tf.Session() as sess:
     sess.run(init)
-    train_writer = tf.summary.FileWriter(logdir, graph=tf.get_default_graph())
+    #train_writer = tf.summary.FileWriter(logdir, graph=tf.get_default_graph())
 
     # if exists(logdir):
     #     saver.restore(sess, logdir)
@@ -55,7 +55,7 @@ with tf.Session() as sess:
         if i % display_step == 0:
             loss_, summary = sess.run([loss, merged_summary], feed_dict={X: batch_x})
             print("Iteration number: ", str(i), " Loss: ", str(loss_))
-            train_writer.add_summary(summary)
+            #train_writer.add_summary(summary)
             saver.save(sess, logdir, global_step=global_step + i)
 
 
