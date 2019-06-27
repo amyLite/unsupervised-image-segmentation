@@ -56,7 +56,7 @@ with tf.Session() as sess:
             loss_, summary = sess.run([loss, merged_summary], feed_dict={X: batch_x})
             print("Iteration number: ", str(i), " Loss: ", str(loss_))
             #train_writer.add_summary(summary)
-            saver.save(sess, logdir, global_step=global_step + i)
+            #saver.save(sess, logdir, global_step=global_step + i)
 
 
 
